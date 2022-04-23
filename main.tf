@@ -32,3 +32,18 @@ module "mssql-server" {
   enable_firewall_rules = false
 
 }
+
+
+### Provide the Existing RG and KeyVault Name
+
+data "azurerm_key_vault" "this" {
+  name                = "adfafewqrasfasfas1"
+  resource_group_name = "testrg"
+}
+
+resource "azurerm_key_vault_secret" "example" {
+  name         = "newkv"
+  value        = "anyvalue"
+  key_vault_id = data.azurerm_key_vault.this.id
+}
+
