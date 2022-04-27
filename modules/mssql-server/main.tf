@@ -89,7 +89,8 @@ resource "random_password" "main" {
 }
 
 resource "azurerm_sql_server" "primary" {
-  name                         = format("%s-primary", var.sqlserver_name)
+#  name                         = format("%s-primary", var.sqlserver_name)
+  name                         = var.sqlserver_name
   resource_group_name          = local.resource_group_name
   location                     = local.location
   version                      = "12.0"
@@ -117,7 +118,8 @@ resource "azurerm_mssql_server_extended_auditing_policy" "primary" {
 
 resource "azurerm_sql_server" "secondary" {
   count                        = var.enable_failover_group ? 1 : 0
-  name                         = format("%s-secondary", var.sqlserver_name)
+#  name                         = format("%s-secondary", var.sqlserver_name)
+  name                         = var.sqlserver_name_secondary
   resource_group_name          = local.resource_group_name_secondary
   location                     = var.secondary_sql_server_location
   version                      = "12.0"

@@ -48,6 +48,12 @@ variable "sqlserver_name" {
   description = "SQL server Name"
   default     = ""
 }
+variable "sqlserver_name_secondary" {
+  description = "SQL server Name"
+  default     = ""
+}
+
+
 
 variable "admin_username" {
   description = "The administrator login name for the new SQL Server"
