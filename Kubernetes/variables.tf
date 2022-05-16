@@ -19,3 +19,7 @@ variable "nodepoolvmsize" {
 variable "nodepoolname" {
   description = "Azure Kubernetes NodePool Name"
 }
+variable "nodepoolcount" {
+  description = "Azure Kubernetes NodePool Name"
+}
+
